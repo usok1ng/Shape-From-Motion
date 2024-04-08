@@ -1,9 +1,9 @@
 function [x_BA] = LM2_iter_dof(x, param)
     
     iter = 0;
-    tolX = 5e-3;   % xÀÇ Á¾·áÇã¿ë¿ÀÂ÷
-    tolFun = 5e-3; % ÇÔ¼ö°ªÀÇ Á¾·áÇã¿ë¿ÀÂ÷
-    tolJ = 1e-5;   % JacobianÀÇ Á¾·áÇã¿ë¿ÀÂ÷
+    tolX = 5e-3;   % xì˜ ì¢…ë£Œí—ˆìš©ì˜¤ì°¨
+    tolFun = 5e-3; % í•¨ìˆ«ê°’ì˜ ì¢…ë£Œí—ˆìš©ì˜¤ì°¨
+    tolJ = 1e-5;   % Jacobianì˜ ì¢…ë£Œí—ˆìš©ì˜¤ì°¨
     max_iter = 50;    
     x_BA = cell(0,1);
     
@@ -34,7 +34,7 @@ function [x_BA] = LM2_iter_dof(x, param)
         end   
                 
         dp = -H_LM \ JtF;
-        if isnan(sum(dp)) % NaNÀÌ¸é ±×³É ³¡³»ÀÚ
+        if isnan(sum(dp)) % NaNï¿½Ì¸ï¿½ ï¿½×³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             break;
 %             lambda=lambda*10; disp(['lambda : ', num2str(lambda), 'by NaN']);
 %             if opt==1      % Levenberg - Marquarbt
@@ -59,7 +59,7 @@ function [x_BA] = LM2_iter_dof(x, param)
         after_F=costE(x_LM, param);
         after_cost = norm(after_F)^2;
         l2_p  = norm(x);
-        l2_dp = norm(dp); %dpÀÇ º¯È­·®    
+        l2_dp = norm(dp); %dpï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½    
             
         if (after_cost < before_cost)
             lambda=lambda*0.1; disp(['lambda : ', num2str(lambda)]);
